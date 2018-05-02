@@ -55,6 +55,7 @@
     <Compile Include="Problem2.fs" />
     <Compile Include="Problem3.fs" />
     <Compile Include="Problem4.fs" />
+    <Compile Include="Problem5.fs" />
     <Compile Include="Problems.fs" />
     <Content Include="packages.config" />
   </ItemGroup>

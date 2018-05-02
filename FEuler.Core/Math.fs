@@ -2,6 +2,7 @@
 
 [<RequireQualifiedAccess>]
 module Math =
+    open System
 
     // Private functions
 
@@ -20,6 +21,10 @@ module Math =
 
     // Public functions
 
+    let floor (number : float) = Math.Floor(number)
+    
+    let log number newBase = Math.Log(number, newBase)
+
     let fibonacciSequence =
         seq {
             yield 1
@@ -35,3 +40,6 @@ module Math =
         isPalindromeHelper 0 ((Array.length array) - 1) true array 
 
     let isNumberPalindrome = convertNumberToSequence >> isSequencePalindrome
+
+    let productBy f =
+        Seq.fold (fun product value -> product * (f value )) 1.0
