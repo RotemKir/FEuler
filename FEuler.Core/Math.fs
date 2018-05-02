@@ -43,3 +43,6 @@ module Math =
 
     let productBy f =
         Seq.fold (fun product value -> product * (f value )) 1.0
+
+    let arithmeticSeriesSum a1 an n =
+        n * (a1 + an) / 2

@@ -16,6 +16,7 @@ module Common =
 
     type Problem =
         {
+            Number : int
             Solver : Solver
             Answer : int option 
         }

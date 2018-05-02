@@ -4,13 +4,15 @@ open FEuler.Problems
 open FEuler.Core.Common
 
 let private showSolveResult problem timedResult =
+    printf "Problem %i: " problem.Number 
+    
     match problem with
     | {Solver = _ ; Answer = None} -> printfn "Answer is %i." timedResult.Result
     | {Solver = _ ; Answer = Some answer} -> 
         printf "Answer %i is " timedResult.Result
-        printfn "%s" (if answer = timedResult.Result then "correct" else "incorrect")
+        printf "%s" (if answer = timedResult.Result then "correct" else "incorrect")
 
-    printfn "Ran in %.3f milliseconds" timedResult.Runtime.TotalMilliseconds
+    printfn " (%.3f ms)" timedResult.Runtime.TotalMilliseconds
 
 let private runSolver problem =
     match problem with
@@ -20,7 +22,11 @@ let private runSolver problem =
 [<EntryPoint>]
 let main _ = 
     printfn "Enter problem number:"
-    Console.ReadLine() |> Problems.getProblem |> runSolver
+    let problemNumber = Console.ReadLine()
+    
+    match problemNumber with
+    | "" -> Problems.getAllproblems |> Seq.iter (fun p -> Some p |> runSolver)
+    | _ -> Problems.getProblem problemNumber |> runSolver
 
     Console.ReadLine() |> ignore
     
