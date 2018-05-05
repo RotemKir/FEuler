@@ -12,13 +12,13 @@ module Common =
             Result : 'a
         }
 
-    type Solver = unit -> int
+    type Solver = unit -> int64
 
     type Problem =
         {
             Number : int
             Solver : Solver
-            Answer : int option 
+            Answer : int64 option 
         }
 
     // Public functions
@@ -42,3 +42,6 @@ module Common =
                 let temp = f n
                 cache.Add(n, temp)
                 temp
+
+    let digitCharToLong (c : char) =
+        Int64.Parse(string c)
