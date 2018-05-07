@@ -1,5 +1,4 @@
 ﻿open System
-open FEuler.Core
 open FEuler.Problems
 open FEuler.Core.Common
 
@@ -7,12 +6,19 @@ let private showSolveResult problem timedResult =
     printf "Problem %i: " problem.Number 
     
     match problem with
-    | {Solver = _ ; Answer = None} -> printfn "Answer is %i." timedResult.Result
+    | {Solver = _ ; Answer = None} -> 
+        Console.ForegroundColor <- ConsoleColor.Yellow
+        printf "Answer is %i." timedResult.Result
     | {Solver = _ ; Answer = Some answer} -> 
-        printf "Answer %i is " timedResult.Result
-        printf "%s" (if answer = timedResult.Result then "correct" else "incorrect")
+        if answer = timedResult.Result then
+            Console.ForegroundColor <- ConsoleColor.Green
+            printf "Answer %i is correct" timedResult.Result
+        else
+            Console.ForegroundColor <- ConsoleColor.Red
+            printf "Answer %i is incorrect, should be %i" timedResult.Result answer
 
     printfn " (%.3f ms)" timedResult.Runtime.TotalMilliseconds
+    Console.ResetColor()
 
 let private runSolver problem =
     match problem with

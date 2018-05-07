@@ -17,11 +17,14 @@ module Problems =
                 { Number = 7 ; Solver = Problems1To10.solve7 >> int64; Answer = Some 104743L }
                 { Number = 8 ; Solver = Problems1To10.solve8 ; Answer = Some 23514624000L }
                 { Number = 9 ; Solver = Problems1To10.solve9 >> int64 ; Answer = Some 31875000L }
+                { Number = 10 ; Solver = Problems1To10.solve10 ; Answer = Some 142913828922L }
             ]
 
     let getProblem problemNumber =
         if problems.ContainsKey problemNumber then Some (problems.Item problemNumber) else None
 
     let getAllproblems =
-        problems |> Seq.map (fun k -> k.Value) 
+        problems 
+        |> Seq.sortBy (fun k -> k.Value.Number)
+        |> Seq.map (fun k -> k.Value) 
 

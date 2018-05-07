@@ -177,3 +177,13 @@ module Problems1To10 =
             |> Seq.find (fun (a, b, c) -> a*a + b*b = c*c)
             
         a * b * c
+
+    (*
+    The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+    
+    Find the sum of all the primes below two million.
+    *)
+    let solve10() =
+        Primes.primesSequence 2000000
+        |> Seq.map int64
+        |> Seq.sum
