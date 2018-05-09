@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Problems1To10.fs" />
+    <Compile Include="Problems11To20.fs" />
     <Compile Include="Problems.fs" />
     <Content Include="packages.config" />
   </ItemGroup>

@@ -4,16 +4,6 @@
 module Problems1To10 =
     open FEuler.Core
 
-    // Helper methods
-
-    let private log20AndFloor = Math.floor << Math.log 20.0
-
-    let private getMaxProductForPrime prime =
-        prime ** log20AndFloor prime
-
-    let private productOfDigits =
-        Seq.fold (fun product c -> product * (Common.digitCharToLong c)) 1L
-
     // Problems
 
     (* 
@@ -68,6 +58,9 @@ module Problems1To10 =
     What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
     *)
     let solve5() =
+        let log20AndFloor = Math.floor << Math.log 20.0
+        let getMaxProductForPrime prime = prime ** log20AndFloor prime
+
         Primes.primesSequence 20
         |> Seq.map float
         |> Math.productBy getMaxProductForPrime
@@ -131,6 +124,9 @@ module Problems1To10 =
     Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
     *)
     let solve8() =
+        let productOfDigits =
+            Seq.fold (fun product c -> product * (Common.digitCharToLong c)) 1L
+
         let longNumber = 
             "73167176531330624919225119674426574742355349194934"
             + "96983520312774506326239578318016984801869478851843"

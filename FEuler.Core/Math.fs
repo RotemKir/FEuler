@@ -44,5 +44,12 @@ module Math =
     let productBy f =
         Seq.fold (fun product value -> product * (f value )) 1.0
 
+    let intProduct (source : seq<int>) =
+        Seq.fold (fun product value -> product * value) 1 source
+
+    let int64Product (source : seq<int64>) =
+        Seq.fold (fun product value -> product * value) 1L source
+
+
     let arithmeticSeriesSum a1 an n =
         n * (a1 + an) / 2

@@ -16,8 +16,9 @@ module Problems =
                 { Number = 6 ; Solver = Problems1To10.solve6 >> int64; Answer = Some 25164150L }
                 { Number = 7 ; Solver = Problems1To10.solve7 >> int64; Answer = Some 104743L }
                 { Number = 8 ; Solver = Problems1To10.solve8 ; Answer = Some 23514624000L }
-                { Number = 9 ; Solver = Problems1To10.solve9 >> int64 ; Answer = Some 31875000L }
+                { Number = 9 ; Solver = Problems1To10.solve9 >> int64; Answer = Some 31875000L }
                 { Number = 10 ; Solver = Problems1To10.solve10 ; Answer = Some 142913828922L }
+                { Number = 11 ; Solver = Problems11To20.solve11 >> int64; Answer = Some 70600674L }
             ]
 
     let getProblem problemNumber =
